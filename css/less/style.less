@@ -1,0 +1,165 @@
+@dark_bg: #38281d;
+@light_bg: #e6e5e6;
+
+@font-face {
+  font-family: 'Blokletters-Potlood';
+  src: local('Blokletters-Potlood'), url(../font/Blokletters-Potlood.ttf);
+}
+@font-face {
+  font-family: 'Blokletters-Viltstift';
+  src: local('Blokletters-Viltstift'), url(../font/Blokletters-Viltstift.ttf);
+}
+
+* { margin:0; padding:0; }
+
+.container{
+	width: 1000px;
+	margin-left: auto;
+  	margin-right: auto;
+  	padding: 24px 0;
+}
+.container.nopadding{
+	padding: 0;
+}
+
+.clearfix:before,
+.clearfix:after,
+.container:before,
+.container:after {
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.container:after {
+  clear: both;
+}
+
+.container{
+	.col{
+		display: block;
+		float: left;
+		margin:0 2% 2% 0;
+	} 
+	.col.right{
+		float: right;
+	}
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+body {
+	background-color: @dark_bg;
+	color: #FFFFFF;
+	font-family: consolas, monospace;
+}
+a{
+	color: #e6e5e6;
+	text-decoration: none;
+}
+a:hover, a.active, .active > a{
+	color: #fffcb0;
+}
+
+.title{
+	font-family: 'Blokletters-Potlood', cursive;
+	font-size: 3em;
+
+	> strong{
+		font-family: 'Blokletters-Viltstift';
+		font-size: .75em;
+	}
+}
+
+.nav{
+	
+	li{
+		display: inline-block;
+		text-align: center;
+		text-transform: uppercase;
+		text-shadow: #000 1px 1px 1px;
+	}
+}
+
+.icon-home, .icon-contact{
+	background: url(../img/icons.png) no-repeat;
+	display: block;
+	height: 32px;
+	width: 32px;
+	margin: auto;
+}
+.icon-contact{
+	background-position: -32px 0;
+}
+
+.searchbar{
+	background: url(../img/searchbar_bg.png) @light_bg repeat-x;
+	color: @dark_bg;
+	height: 45px;
+	text-shadow: rgba(255,255,255,0.5) 1px 1px 1px;
+
+	a{
+		color: #73523c;
+	}
+
+	.catTitle, .categories li, .search label, .search input{
+		font-size: 18px;
+		height: 25px;
+		margin-left: 25px;
+		padding: 10px 2px 2px 2px;
+		font-weight: bold;
+	}
+
+	.catTitle{
+		float: left;
+		margin-left: 0;
+		text-transform: uppercase;
+	}
+	.catTitle:after{
+		content: '▸';
+	}
+	.categories{
+		li{
+			display: block;
+			float: left;
+		}
+		li.active, li:hover{
+			border-bottom: solid 3px #000;
+		}
+		li.active a, li:hover a{
+			color: #000;
+		}
+	}
+
+	.search{
+		float: right;
+
+		label{
+			display: inline-block;
+		}
+		input{
+			background: rgba(255,255,255,0.5) url(../img/search_icon.png) no-repeat 142px;
+			border-radius: 5px;
+			font-family: consolas, monospace;
+			font-weight: normal;
+			height: auto;
+			padding: 2px 20px 2px 0;;
+			width: 140px;
+		}
+
+	}
+
+}
