@@ -81,9 +81,12 @@ a.active,
   text-transform: uppercase;
   text-shadow: #000 1px 1px 1px;
 }
-.icon-home,
-.icon-contact {
+*[class^="ico-"] {
   background: url(../img/icons.png) no-repeat;
+  display: inline-block;
+}
+*[class^="icon-"] {
+  background: url(../img/nav_icons.png) no-repeat;
   display: block;
   height: 32px;
   width: 32px;
@@ -137,14 +140,30 @@ a.active,
 .searchbar .search label {
   display: inline-block;
 }
+.searchbar .search button,
 .searchbar .search input {
-  background: rgba(255, 255, 255, 0.5) url(../img/search_icon.png) no-repeat 142px;
-  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border: solid rgba(0, 0, 0, 0.5);
+}
+.searchbar .search button {
+  border-radius: 0 5px 5px 0;
+  border-width: 1px 0 0 0;
+  cursor: pointer;
+  height: 30px;
+  padding: 0 2px;
+}
+.searchbar .search input {
+  border-radius: 5px 0 0 5px;
+  border-width: 1px 0 0 1px;
   font-family: consolas, monospace;
   font-weight: normal;
-  height: auto;
-  padding: 2px 20px 2px 0;
+  height: 24px;
+  padding: 2px;
   width: 140px;
+}
+.searchbar .search .ico-search {
+  height: 15px;
+  width: 15px;
 }
 .picture {
   background-color: rgba(247, 247, 247, 0.75);
@@ -337,4 +356,27 @@ footer .social .fb:hover {
 }
 footer .social .tw:hover {
   background-position: -38px -38px;
+}
+.copyright {
+  background: #130e0a;
+}
+.copyright p {
+  color: #90674b;
+  float: left;
+  font-size: 14px;
+  padding: 8px 0;
+}
+.copyright .border {
+  background: url("../img/footer_border.png") repeat-x;
+  height: 4px;
+}
+.copyright .powered {
+  float: right;
+  text-align: right;
+}
+.copyright .ico-tool {
+  background-position: -15px 0;
+  height: 17px;
+  margin-bottom: -5px;
+  width: 17px;
 }
