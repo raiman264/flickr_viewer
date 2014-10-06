@@ -1,5 +1,6 @@
 @dark_bg: #38281d;
 @light_bg: #e6e5e6;
+@pic_bg: rgba(247,247,247,0.75);
 
 @font-face {
   font-family: 'Blokletters-Potlood';
@@ -45,7 +46,7 @@
 	.col{
 		display: block;
 		float: left;
-		margin:0 2% 2% 0;
+		margin:0 20px 20px 0;
 	} 
 	.col.right{
 		float: right;
@@ -162,4 +163,115 @@ a:hover, a.active, .active > a{
 
 	}
 
+}
+
+.content{
+	background-color: @light_bg;
+	.picture{
+		background-color: @pic_bg;
+		border: solid 1px #d3d2d3;
+		box-sizing: border-box;
+		height: 150px;
+		margin-bottom: 40px;
+		padding: 20px 10px 10px 10px;
+		position: relative;
+		width: 150px;
+
+		.figure{
+			background-color: @dark_bg;
+			display: block;
+			height: 100%;
+			position: relative;
+			width: 100%;
+
+			.overlay, img{
+				display: block;
+				height: 100%;
+				position: absolute;
+				width: 100%;
+			}
+
+			.overlay{
+				background: url(../img/picture_hover.png) no-repeat;
+				background-size: cover;
+				opacity: 0;
+				transition: 0.5s opacity ease;
+			}
+		}
+		.figure:hover .overlay{
+			opacity: 1;
+		}
+
+		.skotch, .shadow{
+			display: block;
+			left: 0;
+			margin: 0 auto;
+			position: absolute;
+			right: 0;
+		}
+		.skotch{
+			background: url(../img/skotch.png) no-repeat;
+			height: 34px;
+			top: -20px;
+			width: 114px;
+		}
+
+		.shadow{
+			background: url(../img/picture_shadow.png);
+			background-size: cover;
+			bottom: -7px;
+			height: 7px;
+		}
+	}
+	.picture:nth-child(6n){
+		margin-right: 0;
+	}
+
+	.paginator{
+		text-align: center;
+		
+		a{
+			color: #838383;
+			display: block;
+		}
+
+		li{
+			display: inline-block;
+		}
+
+		.prev, .next{
+			background: url(../img/prev_next.png) no-repeat;
+			height: 10px;
+			width: 10px;
+		}
+		.prev.disable{
+			background-position: 0 -10px;
+		} 
+		
+		.next{
+			background-position: -10px 0;
+		}
+		.next.disable{
+			background-position: -10px 10px;
+		}
+
+		.number{
+			background: url(../img/paginator_numbers.png) no-repeat;
+			background-position: -56px 0;
+			box-sizing: content-box;
+			font-size: 15px;
+			height: 28px;
+			padding: 5px 0;
+			text-align: center;
+			width: 28px;
+		}
+		.number.active{
+			background-position: 0 0;
+			color: #FFF;
+		}
+		.number:hover{
+			background-position: -28px 0;
+			color: @dark_bg;
+		}
+	}
 }
