@@ -69,6 +69,7 @@ body {
 }
 a{
 	color: #e6e5e6;
+	cursor: pointer;
 	text-decoration: none;
 }
 a:hover, a.active, .active > a, *:hover>a{
@@ -290,7 +291,7 @@ a:hover, a.active, .active > a, *:hover>a{
 			box-sizing: content-box;
 			font-size: 15px;
 			height: 28px;
-			padding: 5px 0;
+			padding-top: 5px;
 			text-align: center;
 			width: 28px;
 		}
@@ -429,5 +430,14 @@ footer{
 		height: 17px;
 		margin-bottom: -5px;
 		width: 17px;
+	}
+}
+
+.ngdialog.ngdialog-theme-default{
+	text-align: center;
+
+	.ngdialog-content{
+		display: inline-block;
+		width: auto;
 	}
 }

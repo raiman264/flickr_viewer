@@ -1,11 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="flicker_viewer">
 <head>
 	<title>My Pictures!</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
+
+	<link rel="stylesheet" type="text/css" href="bower_components/ngDialog/css/ngDialog.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/ngDialog/css/ngDialog-theme-default.css">
+	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
 <header>
@@ -22,160 +27,9 @@
 			</li>
 		</ul>
 	</div>
-	<div class="searchbar">
-		<div class="container nopadding">
-			<span class="catTitle">Category</span>
-			<ul class="categories">
-				<li class="active">
-					<a href="#">Web</a>
-				</li>
-				<li>
-					<a href="#">Print</a>
-				</li>
-				<li>
-					<a href="#">App</a>
-				</li>
-			</ul>
-			<form class="search">
-				<label for="search">Search</label>
-				<input type="text" name="search" id="search" ><button type="submit"><span class="ico-search"></span></button>
-			</form>
-		</div>
-	</div>
 </header>
-<div class="content">
-	<div class="container">
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-		<div class="picture col">
-			<span class="skotch"></span>
-			<a class="figure" href="#">
-				<img src="http://lorempixel.com/130/120/abstract/1">
-				<span class="overlay"></span>
-			</a>
-			<span class="shadow"></span>
-		</div>
-
-	</div>
-	<ul class="paginator">
-		<li >
-			<a href="#" class="prev disable"></a>
-		</li>
-		<li >
-			<a href="#" class="number active">1</a>
-		</li>
-		<li >
-			<a href="#" class="number">2</a>
-		</li>
-		<li >
-			<a href="#" class="number">5</a>
-		</li>
-		<li >
-			<a href="#" class="number">...</a>
-		</li>
-		<li >
-			<a href="#" class="number">15</a>
-		</li>
-		<li >
-			<a href="#" class="next"></a>
-		</li>
-	</ul>
+<div class="content" ng-view>
+	
 </div>
 <footer>
 	<div class="container">
@@ -247,5 +101,13 @@
 		<p class="powered"><span class="ico-tool"></span> Powered by <strong>BS</strong>.</p>
 	</div>
 </div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.js"></script>
+
+<script src="bower_components/ngDialog/js/ngDialog.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
 </body>
 </html>
