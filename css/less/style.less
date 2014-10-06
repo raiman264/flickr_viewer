@@ -71,7 +71,7 @@ a{
 	color: #e6e5e6;
 	text-decoration: none;
 }
-a:hover, a.active, .active > a{
+a:hover, a.active, .active > a, *:hover>a{
 	color: #fffcb0;
 }
 
@@ -130,7 +130,7 @@ a:hover, a.active, .active > a{
 		text-transform: uppercase;
 	}
 	.catTitle:after{
-		content: '▸';
+		content: '\25B8';
 	}
 	.categories{
 		li{
@@ -165,38 +165,47 @@ a:hover, a.active, .active > a{
 
 }
 
+.picture{
+	background-color: @pic_bg;
+	box-sizing: border-box;
+	position: relative;
+
+	.figure{
+		background-color: @dark_bg;
+		display: block;
+		height: 100%;
+		position: relative;
+		width: 100%;
+
+		.overlay, img{
+			display: block;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+
+		.overlay{
+			background-size: cover;
+			opacity: 0;
+			transition: 0.5s opacity ease;
+		}
+	}
+	.figure:hover .overlay{
+		opacity: 1;
+	}
+}
+
 .content{
 	background-color: @light_bg;
 	.picture{
-		background-color: @pic_bg;
 		border: solid 1px #d3d2d3;
-		box-sizing: border-box;
 		height: 150px;
 		margin-bottom: 40px;
 		padding: 20px 10px 10px 10px;
-		position: relative;
 		width: 150px;
 
-		.figure{
-			background-color: @dark_bg;
-			display: block;
-			height: 100%;
-			position: relative;
-			width: 100%;
-
-			.overlay, img{
-				display: block;
-				height: 100%;
-				position: absolute;
-				width: 100%;
-			}
-
-			.overlay{
-				background: url(../img/picture_hover.png) no-repeat;
-				background-size: cover;
-				opacity: 0;
-				transition: 0.5s opacity ease;
-			}
+		.figure .overlay{
+			background: url(../img/picture_hover.png) no-repeat;
 		}
 		.figure:hover .overlay{
 			opacity: 1;
@@ -229,7 +238,7 @@ a:hover, a.active, .active > a{
 
 	.paginator{
 		text-align: center;
-		
+
 		a{
 			color: #838383;
 			display: block;
@@ -272,6 +281,105 @@ a:hover, a.active, .active > a{
 		.number:hover{
 			background-position: -28px 0;
 			color: @dark_bg;
+		}
+	}
+}
+
+footer{
+	.container > *{
+		float: left;
+	}
+	li:before{
+		content: '\25B8';
+	}
+
+	.categories{
+		display: inline-block;
+		margin-right: 20px;
+		width: 140px;
+
+		li{
+			text-shadow: 1px 1px #000;
+			transition: 0.5s padding ease;
+
+			a{
+				margin-left: 0.5em;
+			}
+		}
+
+		li:hover{
+			padding-left: 15px;
+		}
+	}
+
+	.slider{
+		display: inline-block;
+		width: 445px;
+
+		.picture{
+			float: left;
+			height: 70px;
+			margin-right: 15px;
+			padding: 3px;
+			width: 100px;
+
+			.figure{
+				/*border: solid 1px #000;*/
+				box-sizing: border-box;
+			}
+			.figure:hover .overlay{
+				background: url(../img/slider_hover.png) no-repeat rgba(0,0,0,0.35);
+			}
+		}
+		.picture:last-child{
+			margin: 0;
+		}
+
+		.navigation {
+			clear: both;
+
+			li:before{
+				content: none;
+			}
+			li{
+				display: inline-block;
+			}
+
+			a{
+				background: url(../img/nav_dots.png) no-repeat;
+				display: block;
+				height: 7px;
+				width: 7px;
+			}
+
+			a.active{
+				background-position: -7px 0;
+			}
+		}
+	}
+
+	.subnav li{
+		display: inline-block;
+	}
+
+	.social{
+		margin-top: 20px;
+		text-align: right;
+		
+		.fb, .tw{
+			background: url(../img/social.png) no-repeat;
+			display: inline-block;
+			height: 38px;
+			width: 38px;
+		}
+		.tw{
+			background-position: -38px 0px;
+		}
+		.fb:hover{
+			background-position: 0 -38px;
+		}
+		.tw:hover{
+			background-position: -38px -38px;
 		}
 	}
 }
