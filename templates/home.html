@@ -1,16 +1,10 @@
 
 	<div class="searchbar">
 		<div class="container nopadding">
-			<span class="catTitle">Category</span>
+			<span class="catTitle">Type</span>
 			<ul class="categories">
-				<li class="active">
-					<a href="#">Web</a>
-				</li>
-				<li>
-					<a href="#">Print</a>
-				</li>
-				<li>
-					<a href="#">App</a>
+				<li ng-repeat="type in types" class="{{type.class}}">
+					<a href="#/{{type.value}}/{{params.search}}/{{params.page}}">{{type.text}}</a>
 				</li>
 			</ul>
 			<form class="search" ng-submit="search()">

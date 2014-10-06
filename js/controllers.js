@@ -6,12 +6,29 @@ angular.module('flicker_viewer.controllers',['ngDialog'])
 
   return {
       getImages:function(params, handler){
-
-        $http.get(url+"&method=flickr.photos.search&text="+params.search+"&page="+params.page)
+        
+        $http.get(url+"&method=flickr.photos.search&extras=url_c&content_type="+params.type+"&text="+params.search+"&page="+params.page)
         .success(function(data){
           handler(data);
         }); 
         
+      },
+
+      getTypes:function(current){
+        // 1 for photos only.
+        // 2 for screenshots only.
+        // 3 for 'other' only.
+        // 4 for photos and screenshots.
+        // 5 for screenshots and 'other'.
+        // 6 for photos and 'other'.
+        // 7 for photos, screenshots, and 'other' (all).
+
+        return [
+          {text: 'All', value:7, class: (current==7 ? 'active' : '')},
+          {text: 'Photos', value:1, class: (current==1 ? 'active' : '')},
+          {text: 'screenshots', value:2, class: (current==2 ? 'active' : '')},
+          {text: 'Other', value:3, class: (current==3 ? 'active' : '')}
+        ];
       }
       
     }
@@ -20,20 +37,18 @@ angular.module('flicker_viewer.controllers',['ngDialog'])
 })
 
 .controller('homeCtrl', function($scope, $http, ngDialog, Flickr, $routeParams) {
-  console.log($routeParams);
+
   $scope.params = $routeParams;
+  $scope.types = Flickr.getTypes($routeParams.type);
 
   $scope.pages = []  
 
   Flickr.getImages($routeParams,function(data){
     $scope.images = data.photos;
     paginator();
-    $scope.searchbox = $routeParams.search;
   })
 
   $scope.openPic = function($event){
-    console.log($event.target.parentElement.dataset.href);
-    a = $event;
     ngDialog.open({
       template: '<img src="'+$event.target.parentElement.dataset.href+'">',
       plain: true
@@ -41,13 +56,18 @@ angular.module('flicker_viewer.controllers',['ngDialog'])
   }
 
   $scope.search = function(){
-    window.location.hash = '#/'+$scope.params.search;
+    window.location.hash = '#/'+$routeParams.type+'/'+$scope.params.search;
   }
   
   function paginator(){
     var currentPage = $scope.images.page;
     var pages = [];
-    var baseUrl = '#/'+$routeParams.search+'/'
+    var baseUrl = '#/'+$routeParams.type+'/'+$routeParams.search+'/';
+    var max_page = 99;
+
+    if($scope.images.pages > max_page){
+      $scope.images.pages = max_page;
+    }
 
     pages.push({number: '', class: 'prev '+(currentPage < 2 ? 'disable' : ''), url: baseUrl+(currentPage-1)});
 
