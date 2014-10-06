@@ -218,6 +218,9 @@ a:hover, a.active, .active > a, *:hover>a{
 
 .content{
 	background-color: @light_bg;
+	height: 500px;
+	position: relative;
+
 	.picture{
 		border: solid 1px #d3d2d3;
 		height: 150px;
@@ -258,7 +261,10 @@ a:hover, a.active, .active > a, *:hover>a{
 	}
 
 	.paginator{
+		bottom: 20px;
+		position: absolute;
 		text-align: center;
+		width: 100%;
 
 		a{
 			color: #838383;
@@ -285,7 +291,7 @@ a:hover, a.active, .active > a, *:hover>a{
 			background-position: -10px 10px;
 		}
 
-		.number{
+		.number, .number.disable:hover{
 			background: url(../img/paginator_numbers.png) no-repeat;
 			background-position: -56px 0;
 			box-sizing: content-box;

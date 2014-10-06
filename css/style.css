@@ -195,6 +195,8 @@ a.active,
 }
 .content {
   background-color: #e6e5e6;
+  height: 500px;
+  position: relative;
 }
 .content .picture {
   border: solid 1px #d3d2d3;
@@ -233,7 +235,10 @@ a.active,
   margin-right: 0;
 }
 .content .paginator {
+  bottom: 20px;
+  position: absolute;
   text-align: center;
+  width: 100%;
 }
 .content .paginator a {
   color: #838383;
@@ -257,7 +262,8 @@ a.active,
 .content .paginator .next.disable {
   background-position: -10px 10px;
 }
-.content .paginator .number {
+.content .paginator .number,
+.content .paginator .number.disable:hover {
   background: url(../img/paginator_numbers.png) no-repeat;
   background-position: -56px 0;
   box-sizing: content-box;

@@ -13,9 +13,9 @@
 					<a href="#">App</a>
 				</li>
 			</ul>
-			<form class="search">
-				<label for="search">Search</label>
-				<input type="text" name="search" id="search" ><button type="submit"><span class="ico-search"></span></button>
+			<form class="search" ng-submit="search()">
+				<label for="search" >Search</label>
+				<input type="text" name="search" id="search" ng-model="params.search"><button type="submit"><span class="ico-search"></span></button>
 			</form>
 		</div>
 	</div>
@@ -35,13 +35,7 @@
 
 	</div>
 	<ul class="paginator">
-		<li >
-			<a href="#" class="prev" ng-class="(images.page < 2) ? 'disable' : ''"></a>
-		</li>
 		<li ng-repeat="page in pages">
-			<a href="#" class="number {{page.class}}">{{page.number}}</a>
-		</li>
-		<li >
-			<a href="#" class="next" ng-class="(images.page == images.pages) ? 'disable' : ''"></a>
+			<a href="{{page.url}}" class="{{page.class}}">{{page.number}}</a>
 		</li>
 	</ul>

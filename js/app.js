@@ -4,8 +4,7 @@ angular.module('flicker_viewer', ['ngRoute','flicker_viewer.controllers']) //['u
 
 .config(function($routeProvider, $locationProvider) {
   $routeProvider
-
-    .when('/', {
+    .when('/:search?/:page?', {
         templateUrl: "templates/home.html",
         controller: "homeCtrl"
     })
