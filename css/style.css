@@ -195,6 +195,7 @@ a.active,
 }
 .content {
   background-color: #e6e5e6;
+  color: #38281d;
   height: 500px;
   position: relative;
 }
