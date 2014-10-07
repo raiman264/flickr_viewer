@@ -261,7 +261,7 @@ a.active,
   background-position: -10px 0;
 }
 .content .paginator .next.disable {
-  background-position: -10px 10px;
+  background-position: -10px -10px;
 }
 .content .paginator .number,
 .content .paginator .number.disable:hover {

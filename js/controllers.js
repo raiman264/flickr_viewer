@@ -75,7 +75,7 @@ angular.module('flicker_viewer.controllers',['ngDialog'])
       pages.push({number: 1, class: 'number', url: baseUrl+1});
       
       if(currentPage-2 > 1){
-        pages.push({number: '...', class: 'number disable', url: ''});
+        pages.push({number: '...', class: 'number disable', url: window.location.hash});
       }
     }
 
@@ -88,7 +88,7 @@ angular.module('flicker_viewer.controllers',['ngDialog'])
       pages.push({number: currentPage+1, class: 'number', url: baseUrl+(currentPage+1)});
       
       if(currentPage+2 < $scope.images.pages){
-        pages.push({number: '...', class: 'number disable', url: ''});
+        pages.push({number: '...', class: 'number disable', url: window.location.hash});
       }
     }
 
