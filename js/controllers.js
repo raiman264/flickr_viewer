@@ -2,7 +2,7 @@ angular.module('flicker_viewer.controllers',['ngDialog'])
 
 
 .factory('Flickr', function($http){
-  var url = "https://api.flickr.com/services/rest/?api_key=1fb9b65e54ae1ccf65781a1ef1476147&media=photos&per_page=12&format=json&nojsoncallback=1";
+  var url = "https://api.flickr.com/services/rest/?api_key=a08f75b9e6e3d05fa80ba2f90037ea46&media=photos&per_page=12&format=json&nojsoncallback=1";
 
   return {
       getImages:function(params, handler){
